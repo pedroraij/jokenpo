@@ -1,0 +1,133 @@
+<html>
+
+  <head>
+    <title>Jo Ken Po</title>
+    <style type="text/css">
+    body {
+  background-image: url("https://thumbs.gfycat.com/RegalAssuredGossamerwingedbutterfly-size_restricted.gif");
+background-repeat: no-repeat;
+background-size: 100%;
+}
+div {
+ 
+  text-align: center;
+}
+
+h1 {
+  
+  font: 30px "Trebuchet MS", Helvetica, sans-serif;
+  color: #0059b3;
+  text-shadow: 1px 2px #0080ff;
+  
+}
+h2 {
+  font: 20px Lucida Console, monospace;
+  color: #0077b3;
+  text-shadow: 1px 1.2px #006699;
+  border-style: dashed;
+ 
+}
+
+h3 {
+  color: #0066ff;
+  font: 22px Lucida Console, monospace;
+  text-shadow: 1px 1.2px #0052cc;
+}
+
+h5 {
+  font: Lucida Console, monospace;
+  color: #0059b3; 
+}
+</style>
+  </head>
+
+<body>
+    <div>
+    <h1>JO KEN PO</h1>
+      <br><h2 id="usuarioChoice"></h2>
+      <h2 id="pcChoice"></h2>
+
+      <br><h3 id="Resultado"></h3>
+      <p><h3 id="contadorUsuario"></h3>
+      <p><h3 id="contadorIA"></h3>
+      <p><h3 id="contadorEmpate"></h3>
+      
+      <br><h5>
+      <button onclick="start()">Jogar</button>
+      </h5>
+      <br>
+      <h5>Os jogadores devem escolher alguma opção (pedra, papel ou tesoura).<p> <b>Papel > Pedra > Tesoura > Papel...</b> </h5>
+    </div>
+  </body>
+
+</html>
+<script type="text/javascript">
+ var contador1 = 0, contador2 = 0, contador3 = 0, resultado; 
+    function start() {
+       
+    alert("Pronto para iniciar o jogo? Clique em ok.");
+    var usuarioChoice = prompt("Voce escolhe pedra, papel ou tesoura? (Não use letra maiúscula)");
+    var pcChoice = Math.random();
+    if (pcChoice < 0.34) {
+      pcChoice = 'pedra';
+    }
+     else if (pcChoice <= 0.67) {
+      pcChoice = 'papel';
+    }
+     else {
+      pcChoice = 'tesoura';
+    }
+    document.getElementById("usuarioChoice").innerHTML = "Você escolheu: " + usuarioChoice;
+    document.getElementById("pcChoice").innerHTML = "O Computador escolheu: " + pcChoice;
+
+     
+
+
+if (usuarioChoice === 'pedra'){
+  if (pcChoice === 'tesoura') {
+    resultado = 'Voce venceu';
+  }
+  else if (pcChoice === 'papel') {
+    resultado = 'IA venceu';
+  }
+  else if (pcChoice === 'pedra') {
+     resultado = 'Empate';
+  }
+}
+else if (usuarioChoice === 'papel') {
+  if (pcChoice === 'pedra') {
+    resultado = 'Voce venceu';
+  }
+  else if (pcChoice === 'tesoura') {
+    resultado = 'IA venceu';
+  }
+  else if (pcChoice === 'papel') {
+    resultado = 'Empate';
+  }
+}
+else if (usuarioChoice === 'tesoura') {
+  if (pcChoice === 'papel') {
+    resultado = 'Voce venceu';
+  }
+  else if (pcChoice === 'pedra') {
+    resultado = 'IA venceu';
+  }
+  else if (pcChoice === 'tesoura') {
+    resultado = 'Empate';
+  }
+}
+
+if (resultado === 'Voce venceu') {
+  contador1 = contador1 + 1;
+}
+else if (resultado === 'IA venceu') {
+  contador2 = contador2 + 1;
+}
+   
+
+    document.getElementById("Resultado").innerHTML = "Resultado: " + resultado;
+    document.getElementById("contadorUsuario").innerHTML = "Pontuação do Usuário: " + contador1;
+    document.getElementById("contadorIA").innerHTML = "Pontuação do Computador: " + contador2;
+    
+  }
+  </script>
